@@ -20,7 +20,7 @@ main ()
   srand (time (NULL));
 
   printf
-	("\n\n        Lucky Adventure      \n\nDigite o nome do personagem (atC) 24 letras):");
+	("\n\n        Lucky Adventure      \n\nDigite o nome do personagem (até 24 letras):");
   scanf ("%24s", nome);
   printf
 	("\nBem_Vindo %s, nesta jornada voce precisara contar com um pouco de sorte pra vencer",
@@ -31,10 +31,13 @@ main ()
   vida = rand () % 130;
   dano = rand () % 80;
   velocidade = rand () % 100;
-  defesa = rand () % 50;
+  defesa = rand () % 15;
   printf
 	("\nHP: %2.f de vida\nPROTECAO: %2.f de defesa\nAGILIDADE: %2.f de velocidade\nATAQUE: %2.f de dano\n",
 	 vida, defesa, velocidade, dano);
+	 
+    printf("Escolhendo batalha.....\n");
+    sleep (6);
 
   escolha = rand () % 3;
   printf ("\n\nLuta escolhida_ Luta %i Rival: ", escolha);
@@ -43,7 +46,8 @@ main ()
   if (escolha == 3 || escolha == 0)
 	{
 	  printf ("FENIX\n\n");
-	  printf ("Fenix status_HP: %2.f --- VS --- %s status_HP: %2.f ", fvida, nome, vida);
+	  printf ("HP: %2.f         Dano: %2.f \n\n", fvida, fdano);
+	  sleep (6);
 	  while (vida > 0 || fvida > 0)
 		{
 		  printf ("\nVoce ataca fenix com tudooo\n");
@@ -51,9 +55,9 @@ main ()
 		  printf ("A Vida de Fenix cai para: %2.f", fvida);
 		  printf ("\nFenix voa e joga fogo em voce\n");
 		  vida = vida - (fdano - defesa);
-		  printf ("\n %s se queima e agora sua vida fica em: %2.f", nome, vida);
+		  printf ("%s se queima e agora sua vida fica em: %2.f", nome, vida);
 		  printf("\n-----------------\n");
-		  sleep(4);
+		  sleep(6);
 		  if (fvida < 0)
 			{
 			  printf ("\n\nGAME WIN!!!\n\nVoce Venceu! Ou apenas teve sorte...");
@@ -69,26 +73,27 @@ main ()
 
   if (escolha == 2)
 	{
-	  printf ("QUIMERA\n\n");
-	  printf ("Quimera status_HP: %2.f --- VS --- %s status_HP: %2.f ", fvida, nome, vida);
-	  while (vida > 0 || fvida > 0)
+	  printf ("QUIMERA____\n\n");
+	  printf ("HP: %2.f         Dano: %2.f \n\n", qvida, qdano);
+	  sleep (6);
+	  while (vida > 0 || qvida > 0)
 		{
-		  printf ("\nVoce atacaaaa\n");
-		  fvida = fvida - dano;
-		  printf ("\nA Vida de Fenix agora e: %2.f", fvida);
-		  printf ("\nCuidado ataque da Fenix\n");
-		  vida = vida - (fdano - defesa);
-		  printf ("\nA Vida de %s agora e: %2.f", nome, vida);
+		  printf ("\n %s ataca Quimera pelas costas\n", nome);
+		  qvida = qvida - dano;
+		  printf ("\nA Vida de Quimera cai para: %2.f", qvida);
+		  printf ("\nQuimera pula sobre %s e te morde\n", nome);
+		  vida = vida - (qdano - defesa);
+		  printf ("A Vida de %s agora e: %2.f", nome, vida);
 		  printf("\n-----------------\n");
-		  sleep (4);
-		  if (fvida < 0)
+		  sleep (6);
+		  if (qvida < 0)
 			{
 			  printf ("\n\nGAME WIN!!!\n\nVoce Venceu! Ou apenas teve sorte...");
 			  break;
 			}
 		  if (vida < 0)
 			{
-			  printf ("\n\nGAME OVER!!!\n\nVoce foi Queimado por brasas de fenix nao teve sorte");
+			  printf ("\n\nGAME OVER!!!\n\nVoce foi devorado pelos dentes ferozes da Quimera nao teve sorte");
 			  break;
 			}
 		}
@@ -96,26 +101,26 @@ main ()
   if (escolha == 1)
 	{
 	  printf ("KRAKEN\n\n   Luta:\n");
-	  printf ("Kraken status_HP: %2.f --- VS --- %s status_HP: %2.f ", fvida,
-			  nome, vida);
-	  while (vida > 0 || fvida > 0)
+	  printf ("HP: %2.f         Dano: %2.f      Defesa:5 \n\n", kvida, kdano);
+	  sleep (6);
+	  while (vida > 0 || kvida > 0)
 		{
-		  printf ("\nVoce atacaaaa\n");
-		  fvida = fvida - dano;
-		  printf ("\nA Vida de Fenix agora e: %2.f", fvida);
-		  printf ("\nCuidado ataque da Fenix\n");
-		  vida = vida - (fdano - defesa);
-		  printf ("\nA Vida de %s agora e: %2.f", nome, vida);
+		  printf ("\n %s se atira no mar e golpeia kraken com um soco\n", nome);
+		  kvida = kvida - (dano-10);
+		  printf ("Kraken e acertado e sua vida cai para: %2.f", kvida);
+		  printf ("\nVoce tenta fugir do mar mas kraken te agarra e te prende embaixo d'agua\n");
+		  vida = vida - (kdano - defesa);
+		  printf ("A Vida de %s agora e: %2.f", nome, vida);
 		  printf("\n-----------------\n");
-		  sleep (4);
-		  if (fvida < 0)
+		  sleep (6);
+		  if (kvida < 0)
 			{
 			  printf ("\n\nGAME WIN!!!\n\nVoce Venceu! Ou apenas teve sorte...");
 			  break;
 			}
 		  if (vida < 0)
 			{
-			  printf ("\n\nGAME OVER!!!\n\nVoce foi Queimado por brasas de fenix nao teve sorte");
+			  printf ("\n\nGAME OVER!!!\n\nVoce se afogou, virou comida de peixe nao teve sorte");
 			  break;
 			}
 		}
@@ -123,4 +128,3 @@ main ()
 
   return 0;
 }
-
