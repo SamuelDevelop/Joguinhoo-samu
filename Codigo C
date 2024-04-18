@@ -11,11 +11,11 @@ main ()
   float vida, dano, velocidade, defesa;
   int escolha;
   //fenix
-  float fvida = 100, fdano = 15;
+  float fvida = 100, fdano = 8;
   //kraken
-  float kvida = 200, kdano = 20;
+  float kvida = 150, kdano = 9;
   //quimera
-  float qvida = 300, qdano = 15;
+  float qvida = 180, qdano = 9;
 
   srand (time (NULL));
 
